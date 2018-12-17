@@ -9,22 +9,5 @@ public class JoueurVirtuel extends Joueur {
 
     }
 	
-    public void passerTrick() {
-    }
-
-    public void utiliserSleightOfHand() {
-    }
-
-    public void echangerPropAdversaire() {
-    }
-
-    public void revelerUnProp() {
-    }
-
-    public void passerLetour() {
-    }
-
-    public void realiseLeTrick() {
-    }
 
 }
