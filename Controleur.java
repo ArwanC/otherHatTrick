@@ -41,80 +41,80 @@ public class Controleur {
 
 	private LinkedList<Joueur> listJoueur = new LinkedList<Joueur>();
 	
-	//private LinkedList<Trick> listTrick = new LinkedList<Trick>();
+	private LinkedList<Trick> listTrick = new LinkedList<Trick>();
 	
-	//private ArrayList<Prop> listProp = new ArrayList<Prop>();
+	private ArrayList<Prop> listProp = new ArrayList<Prop>();
 
-	//private Prop propCentral = new Prop();
+	private Prop propCentral = new Prop();
 	
-	//private Trick trickEnCours;
+	private Trick trickEnCours;
 	
 	private Strategy difficulte;
 	
-//	public ArrayList<Prop> creerPropsPrincipaux(ArrayList<Prop> p) {
-//		p.add(new Prop("The Lettuce"));
-//		p.add(new Prop("Carrots"));
-//		p.add(new Prop("Carrots"));
-//		p.add(new Prop("Carrots"));
-//		p.add(new Prop("The Rabbit"));
-//		p.add(new Prop("The Other Rabbit"));
-//		p.add(new Prop("The Hat"));
-//		return p;
-//	}
+	public ArrayList<Prop> creerPropsPrincipaux(ArrayList<Prop> p) {
+		p.add(new Prop("The Lettuce"));
+		p.add(new Prop("Carrots"));
+		p.add(new Prop("Carrots"));
+		p.add(new Prop("Carrots"));
+		p.add(new Prop("The Rabbit"));
+		p.add(new Prop("The Other Rabbit"));
+		p.add(new Prop("The Hat"));
+		return p;
+	}
 
-//	public ArrayList<Prop> ajouterProps(String s) { //add 1 prop
-//		ArrayList<Prop> al = new ArrayList<Prop>();
-//		al.add(new Prop(s));
-//		return al;
-//	}
+	public ArrayList<Prop> ajouterProps(String s) { //add 1 prop
+		ArrayList<Prop> al = new ArrayList<Prop>();
+		al.add(new Prop(s));
+		return al;
+	}
 
 
-//	public ArrayList<Prop> ajouterProps(String s, String s2) { // add 2 props aux principaux
-//		ArrayList<Prop> al = new ArrayList<Prop>();
-//		al.add(new Prop(s));
-//		al.add(new Prop(s2));
-//		return al;
-//	}
+	public ArrayList<Prop> ajouterProps(String s, String s2) { // add 2 props aux principaux
+		ArrayList<Prop> al = new ArrayList<Prop>();
+		al.add(new Prop(s));
+		al.add(new Prop(s2));
+		return al;
+	}
 	
-//	public LinkedList<Trick> creerTricksPrincipaux(LinkedList<Trick> t, ArrayList<Prop> p) {
-//		t.add(new Trick(ajouterProps("The Rabbit", "The Other Rabbit"), ajouterProps("The Lettuce", "Carrots"),
-//				"The Hungry Rabbit", 1, 0));
-//		t.add(new Trick(ajouterProps("Carrots"), ajouterProps("Carrots"), "The Bunch of Carrots", 2, 0));
-//		t.add(new Trick(ajouterProps("The Rabbit", "The Other Rabbit"), ajouterProps("The Lettuce"),
-//				"The Rabbit That Didn't Like Carrots", 4, 0));
-//		t.add(new Trick(ajouterProps("The Rabbit"), ajouterProps("The Other Rabbit"), "The Pair of Rabbits", 5, 0));
-//		t.add(new Trick(ajouterProps("The Hat"), ajouterProps("Carrots"), "The Carrot Hat Trick", 3, 0));
-//		t.add(new Trick(ajouterProps("The Hat"), ajouterProps("The Rabbit", "The Other Rabbit"),
-//				"The Slightly Easier Hat Trick", 4, 0));
-//		t.add(new Trick(ajouterProps("The Hat"), ajouterProps("The Other Rabbit"), "The Other Hat Trick", 6, -3));
-//		return t;
-//	}
+	public LinkedList<Trick> creerTricksPrincipaux(LinkedList<Trick> t, ArrayList<Prop> p) {
+		t.add(new Trick(ajouterProps("The Rabbit", "The Other Rabbit"), ajouterProps("The Lettuce", "Carrots"),
+				"The Hungry Rabbit", 1, 0));
+		t.add(new Trick(ajouterProps("Carrots"), ajouterProps("Carrots"), "The Bunch of Carrots", 2, 0));
+		t.add(new Trick(ajouterProps("The Rabbit", "The Other Rabbit"), ajouterProps("The Lettuce"),
+				"The Rabbit That Didn't Like Carrots", 4, 0));
+		t.add(new Trick(ajouterProps("The Rabbit"), ajouterProps("The Other Rabbit"), "The Pair of Rabbits", 5, 0));
+		t.add(new Trick(ajouterProps("The Hat"), ajouterProps("Carrots"), "The Carrot Hat Trick", 3, 0));
+		t.add(new Trick(ajouterProps("The Hat"), ajouterProps("The Rabbit", "The Other Rabbit"),
+				"The Slightly Easier Hat Trick", 4, 0));
+		t.add(new Trick(ajouterProps("The Hat"), ajouterProps("The Other Rabbit"), "The Other Hat Trick", 6, -3));
+		return t;
+	}
 	
 	public ArrayList<Prop> melangerProps(ArrayList<Prop> al) {
 		Collections.shuffle(al);
 		return al;
 	}
 	
-//	public LinkedList<Trick> melangerTricks() {
-//		Trick theOtherHatTrick = listTrick.getLast();
-//		listTrick.remove(listTrick.getLast());
-//		Collections.shuffle(listTrick);
-//		listTrick.addLast(theOtherHatTrick);
-//		return listTrick;
-//	}
+	public LinkedList<Trick> melangerTricks() {
+		Trick theOtherHatTrick = listTrick.getLast();
+		listTrick.remove(listTrick.getLast());
+		Collections.shuffle(listTrick);
+		listTrick.addLast(theOtherHatTrick);
+		return listTrick;
+	}
 
 
 
-//	public void distribuerProps() { // A FAIRE AVEC ITERATOR
-//		int i, j, k = 0;
-//		for (i = 0; i < listJoueur.size(); i++) {
-//			for (j = 0; j < 2; j++) {
-//				listJoueur.get(i).doubletProp.add(listProp.get(k));
-//				k++;
-//			}
-//		}
-//		propCentral = listProp.get(k);
-//	}
+	public void distribuerProps() { // A FAIRE AVEC ITERATOR
+		int i, j, k = 0;
+		for (i = 0; i < listJoueur.size(); i++) {
+			for (j = 0; j < 2; j++) {
+				listJoueur.get(i).doubletProp.add(listProp.get(k));
+				k++;
+			}
+		}
+		propCentral = listProp.get(k);
+	}
 
 
 	public LinkedList<Joueur> creerJoueurReel(LinkedList<Joueur> lsJoueur) {
@@ -242,14 +242,14 @@ public class Controleur {
 		return reponse;
 	}
 
-//	public void echangerProp(int numAdv, int joueurActuel, int propAdv, int monProp) {
-//		Prop intermediaire = listJoueur.get(numAdv).doubletProp.get(propAdv);
-//		listJoueur.get(numAdv).doubletProp.remove(propAdv);
-//		listJoueur.get(numAdv).doubletProp.add(propAdv, listJoueur.get(joueurActuel).doubletProp.get(monProp));
-//		listJoueur.get(joueurActuel).doubletProp.remove(monProp);
-//		listJoueur.get(joueurActuel).doubletProp.add(monProp, intermediaire);
-//		System.out.println(newLine+"Vous avez recupere : " + intermediaire.getNom());
-//	}
+	public void echangerProp(int numAdv, int joueurActuel, int propAdv, int monProp) {
+		Prop intermediaire = listJoueur.get(numAdv).doubletProp.get(propAdv);
+		listJoueur.get(numAdv).doubletProp.remove(propAdv);
+		listJoueur.get(numAdv).doubletProp.add(propAdv, listJoueur.get(joueurActuel).doubletProp.get(monProp));
+		listJoueur.get(joueurActuel).doubletProp.remove(monProp);
+		listJoueur.get(joueurActuel).doubletProp.add(monProp, intermediaire);
+		System.out.println(newLine+"Vous avez recupere : " + intermediaire.getNom());
+	}
 	
 	public void ajoutPts(int joueurEnCours) {
 		listJoueur.get(joueurEnCours).setScore(trickEnCours.getPoint() + listJoueur.get(joueurEnCours).score);
@@ -640,7 +640,7 @@ public class Controleur {
 							System.out.println(newLine+"Choisissez quelle Prop vous voulez prendre :");
 							afficherPropsAdv(numAdv);
 							propAdv = verifyInt(0, 1);
-							listJoueur.get(joueurEnCours).echangerProp(numAdv, joueurEnCours, propAdv, monProp, listJoueur);
+							echangerProp(numAdv, joueurEnCours, propAdv, monProp);
 							afficherSesProps(joueurEnCours);
 							if (validiteTrick(joueurEnCours, trickEnCours) && trickEnCours.getNom()!="The Other Hat Trick") {
 								System.out.println(newLine + newLine + "Bravo ! Trick reussi. Vous avez recupere "+trickEnCours.getPoint()+" points");

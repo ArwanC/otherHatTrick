@@ -1,17 +1,12 @@
-import java.util.ArrayList;
-import java.util.Collections;
 
-public class Prop extends Carte{
+public class Prop {
 	
-    // private String nom;   
+    private String nom;   
     private boolean devoiler;
     
-    public Prop() {
-    	super();
-    }
-  
+    public Prop() {}
+    
     public Prop(String nom) {
-    	super(nom);
 		this.nom = nom;
 		this.devoiler = false;
 	}
@@ -37,25 +32,5 @@ public class Prop extends Carte{
 		return builder.toString();
 	}
     
-	private ArrayList<Prop> listProp = new ArrayList<Prop>();
-	
-	private Prop propCentral = new Prop();
-	
-	public ArrayList<Prop> creerPropsPrincipaux(ArrayList<Prop> p) {
-		p.add(new Prop("The Lettuce"));
-		p.add(new Prop("Carrots"));
-		p.add(new Prop("Carrots"));
-		p.add(new Prop("Carrots"));
-		p.add(new Prop("The Rabbit"));
-		p.add(new Prop("The Other Rabbit"));
-		p.add(new Prop("The Hat"));
-		return p;
-	}
-	
-	public ArrayList<Prop> melangerProps(ArrayList<Prop> al) {
-		Collections.shuffle(al);
-		return al;
-	}
 
-	
 }

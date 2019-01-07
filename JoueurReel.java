@@ -3,7 +3,6 @@ import java.util.*;
 public class JoueurReel extends Joueur {
 	
 	ArrayList<Prop> props = new ArrayList<Prop>();
-	private String newLine = System.getProperty("line.separator");
 	
     public JoueurReel(){
     	
@@ -12,7 +11,7 @@ public class JoueurReel extends Joueur {
     	this.nom=sc.nextLine();
     	this.doubletProp = props;
     	System.out.println("age : ");
-    	while (true) { // check si input est un int and (< 0) and (> 3).
+    	while (true) { // checks si input est un int and (< 0) and (> 3).
     		try {
     			this.age = Integer.parseInt(sc.next());
     			while (this.age<8 || this.age>100) {
@@ -32,14 +31,6 @@ public class JoueurReel extends Joueur {
 
     public void interfaceGraphique() {
     }
-    
-    public void echangerProp(int numAdv, int joueurActuel, int propAdv, int monProp, LinkedList<Joueur> listJoueur) {
-		Prop intermediaire = listJoueur.get(numAdv).doubletProp.get(propAdv);
-		listJoueur.get(numAdv).doubletProp.remove(propAdv);
-		listJoueur.get(numAdv).doubletProp.add(propAdv, listJoueur.get(joueurActuel).doubletProp.get(monProp));
-		listJoueur.get(joueurActuel).doubletProp.remove(monProp);
-		listJoueur.get(joueurActuel).doubletProp.add(monProp, intermediaire);
-		System.out.println(newLine+"Vous avez recupere : " + intermediaire.getNom());
-	}
+
 
 }
