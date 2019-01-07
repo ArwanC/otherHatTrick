@@ -26,7 +26,6 @@ public class JoueurReel extends Joueur {
     	}
     	
     }
-    
 
     public void ligneDeCommande() {
     }

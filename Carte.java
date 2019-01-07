@@ -17,13 +17,13 @@ public class Carte {
 	
 	public Carte() {}
 	
-	public static ArrayList<Prop> ajouterProps(String s) { //add 1 prop
+	public ArrayList<Prop> ajouterProps(String s) { //add 1 prop
 		ArrayList<Prop> al = new ArrayList<Prop>();
 		al.add(new Prop(s));
 		return al;
 	}
 	
-	public static ArrayList<Prop> ajouterProps(String s, String s2) { // add 2 props aux principaux
+	public ArrayList<Prop> ajouterProps(String s, String s2) { // add 2 props aux principaux
 		ArrayList<Prop> al = new ArrayList<Prop>();
 		al.add(new Prop(s));
 		al.add(new Prop(s2));

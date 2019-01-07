@@ -4,7 +4,7 @@ import org.apache.commons.lang3.reflect.TypeUtilsTest.This;
 
 import java.text.*;
 
-public abstract class Joueur {
+public class Joueur {
 	private String newLine = System.getProperty("line.separator");
     protected String nom;
     protected int age;
@@ -67,5 +67,12 @@ public abstract class Joueur {
 		this.doubletProp = doubletProp;
 	}
    
-	abstract void echangerProp();
+	public void echangerProp(int numAdv, int joueurActuel, int propAdv, int monProp, LinkedList<Joueur> listJoueur) {
+		Prop intermediaire = listJoueur.get(numAdv).doubletProp.get(propAdv);
+		listJoueur.get(numAdv).doubletProp.remove(propAdv);
+		listJoueur.get(numAdv).doubletProp.add(propAdv, listJoueur.get(joueurActuel).doubletProp.get(monProp));
+		listJoueur.get(joueurActuel).doubletProp.remove(monProp);
+		listJoueur.get(joueurActuel).doubletProp.add(monProp, intermediaire);
+		System.out.println(newLine+"Vous avez recupere : " + intermediaire.getNom());
+	}
 }
