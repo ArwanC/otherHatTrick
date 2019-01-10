@@ -2,7 +2,7 @@ package Modele;
 
 import java.util.ArrayList;
 
-public class Trick {
+public class Trick extends Carte{
 	
 	String newLine = System.getProperty("line.separator"); // Sous Windows et MacOS le retour � la ligne n'est pas le m�me.
 	
@@ -19,7 +19,6 @@ public class Trick {
 	private ArrayList<Prop> propG;
 	private ArrayList<Prop> propD;
 	
-	private String nom;
 	private int point;
     private int pointDePenalite;
 	

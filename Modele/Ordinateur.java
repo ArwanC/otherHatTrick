@@ -5,26 +5,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
-//Changelog
-//Affiche des props associ� � un trick lors d'utilistion de toString sur un trick
-//nom d'un joueur virtuel d�sormais toujours en minuscule et 4 caract�tes pour simplifier
-//Implementation de l'extension ok
-//Joueur possede mtn un attribut position correspond � l'ordre pour un tour ( commence par O) et est identique � sa position dans ListJoueur
-// On use mtn l'attribut trickEnCours pour l'afficher, on use mtn la fonction pop() pour retirer un trick de la liste, regarde la fonction devoilerTrick()
-// et surement pleins d'autres trucs que j'ai oublie de noter...
-
-
-//Remarques :
-//Quand on fait un parcours de List on devrait use un iterator et pas autre chose, methode standard
-// La visibile d'une carte se transmet lors d'un echange, elle reste visible, il faut regler ca
-//Verifiertrick fonctionne pas
-// Les commentaires en MAJUSCULES sont des problemes a regler ou des trucs a faire
-
-
-
-//int boundedRandomValue = ThreadLocalRandom.current().nextInt(0, 100);
-// Ci dessus prend un int random entre 0 (inclus) et 100(exclus)
-
 public class Ordinateur {
 
 
@@ -39,7 +19,7 @@ public class Ordinateur {
 		return INSTANCE;
 	}
 	
-	private String newLine = System.getProperty("line.separator"); // Sous Windows et MacOS le retour a la ligne n'est pas le meme, use ca, exemple dans les fonctions du bas
+	private String newLine = System.getProperty("line.separator");
 
 	private LinkedList<Joueur> listJoueur = new LinkedList<Joueur>();
 	
@@ -107,7 +87,7 @@ public class Ordinateur {
 
 
 
-	public void distribuerProps() { // A FAIRE AVEC ITERATOR
+	public void distribuerProps() { 
 		int i, j, k = 0;
 		for (i = 0; i < listJoueur.size(); i++) {
 			for (j = 0; j < 2; j++) {
@@ -144,11 +124,6 @@ public class Ordinateur {
 		return extension;
 	}
 
-	/*
-	 * public Strategy choixDifficulte() { //saisir difficulte de jeu
-	 * 
-	 * }
-	 */
 
 	public Variante creerVariante() {
 		Variante variante = new Variante();
@@ -316,7 +291,7 @@ public class Ordinateur {
 		listJoueur.get(joueurActuel).doubletProp.add(monProp, intermediaire);
 	}
 
-	public void afficherPropsJoueurs() { // Idem, modulaire a donf !
+	public void afficherPropsJoueurs() { 
 		
 		System.out.println(newLine+newLine+"Les props des joueurs sont : ");
 		for (int i = 0; i < listJoueur.size(); i++) {
@@ -447,7 +422,6 @@ public class Ordinateur {
 			if(p.isDevoiler()==false){
 				cont++;
 				tab[cont]=listJoueur.get(joueurEnCours).doubletProp.indexOf(p);
-				//System.out.println(listJoueur.get(joueurEnCours).doubletProp.indexOf(p)+" : "+p.getNom());
 			}
 		}
 		if(cont==0) {
@@ -531,8 +505,6 @@ public class Ordinateur {
 		int extension = 0;
 		int variante = 0;
 		Scanner sc = new Scanner(System.in);
-		//System.out.println("Difficulte ? 1 Normal 2 Difficile  : ");
-		//System.out.println("Variante   ? 1 Variante(1) 2 Variante(2)   : ");
 		System.out.println(newLine+"Int�grer les cartes d'extension ?  1- Oui   2- Non : ");
 		extension = verifyInt(1, 2);
 		System.out.println(newLine+"Jouer avec une variante ? 1- Oui   2- Non : ");
@@ -587,9 +559,7 @@ public class Ordinateur {
 				if(fin==joueurEnCours) {
 					partieFinie=true;
 				}
-				/*if(listTrick.isEmpty()==false) {
-					devoilerTrick();
-				}*/
+
 				if(listTrick.isEmpty()==true && fin==-1) {
 					fin=joueurEnCours;
 				}
@@ -628,7 +598,6 @@ public class Ordinateur {
 									} else {
 										revelerProp(joueurEnCours);
 									}
-									//enleverTrickDeLaPile();
 									tourFini = true;
 									break;
 								}
@@ -655,7 +624,6 @@ public class Ordinateur {
 								theOtherHatTrickReussi = true;
 							}
 							tourFini = true;
-							//enleverTrickDeLaPile();
 							tourFini = true;
 							break;
 						case 5:

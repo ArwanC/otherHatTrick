@@ -1,9 +1,8 @@
 package Modele;
 
 
-public class Prop {
-	
-    private String nom;   
+public class Prop extends Carte{
+	 
     private boolean devoiler;
     
     public Prop() {}

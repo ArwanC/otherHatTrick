@@ -14,10 +14,16 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-
+import javax.swing.JButton;
+/**
+ * Interface graphique du jeu permettant de jouer au jeu
+ * @author cedric
+ *
+ */
 public class MonInterface {
 
 	private JFrame frame;
+	private JFrame frame_2;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
@@ -53,6 +59,11 @@ public class MonInterface {
 		frame.setBounds(100, 100, 659, 438);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		frame_2 = new JFrame();
+		frame_2.setBounds(100, 100, 659, 438);
+		frame_2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame_2.getContentPane().setLayout(null);
 		
 		JCheckBox chckbxIntgrerExtension = new JCheckBox("Int\u00E9grer Extension");
 		chckbxIntgrerExtension.setBounds(216, 69, 196, 29);
@@ -115,7 +126,18 @@ public class MonInterface {
 		frame.getContentPane().add(lblJoueur);
 		
 		JLabel lblCdricFreire = new JLabel("C\u00E9dric Freire & Arwan Credoz");
-		lblCdricFreire.setBounds(386, 358, 236, 20);
+		lblCdricFreire.setBounds(0, 362, 236, 20);
 		frame.getContentPane().add(lblCdricFreire);
+		
+		JButton btnValider = new JButton("Valider");
+		btnValider.setBounds(507, 337, 115, 29);
+		frame.getContentPane().add(btnValider);
+	}
+	
+	public void switchscreengame() {
+		
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(frame_2);
+		frame.revalidate();
 	}
 }

@@ -1,9 +1,12 @@
 package Modele;
 
 import java.util.*;
-
-public class Plateau { //Singleton
-    private Trick[] pileDeTricks;
+/**
+ * Représente le plateau de jeu contenant toutes les cartes du jeu
+ * @author cedric
+ *
+ */
+public class Plateau { 
 
     private Trick trickActif;
 
